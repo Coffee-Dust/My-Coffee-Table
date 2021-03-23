@@ -1,0 +1,2 @@
+class CoffeeTablesController < ApplicationController
+end
