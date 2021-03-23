@@ -1,0 +1,3 @@
+class UsersSerializer
+
+end
