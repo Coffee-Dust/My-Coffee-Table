@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     validate_model_with_block_or_render_error(user) do
       # Raise error if it doesn't save so the rescue block can render the errors
       if user.save!
-        render json: {success: "Successfuly created new User with id: #{user.id}"}
+        render json: UserSerializer.new(user).to_serialized_json
       end
     end
   end
