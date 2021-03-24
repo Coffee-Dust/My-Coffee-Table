@@ -41,3 +41,18 @@ nav ul li:hover {
   background-color: #663b24;
   color: rgb(245, 222, 179);
 }
+
+#coffee_table_view {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: -69;
+  background: url("../images/bg_type_1.jpg") no-repeat center center;
+  background-size: cover;
+  height: 500px;
+}
+
+body {
+  box-sizing: border-box;
+}
