@@ -6,7 +6,7 @@ class CoffeeTableSerializer
 
   def to_serialized_json
     options = {
-      only: [:id, :nickname],
+      only: [:id, :nickname, :background_type],
       include: {
         user: {
           only: [:id, :name, :email]
