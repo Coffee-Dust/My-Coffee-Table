@@ -16,12 +16,11 @@ class ApplicationController < ActionController::API
       yield
     rescue => exception
       render json: {
-        validation_error: "true", 
-        error_details: {
-          full_messages: model.errors.full_messages,
-          messages: model.errors.messages
+        errors: {
+          messages: model.errors.messages,
+          full_messages: model.errors.full_messages
         }
-      }, status: 569
+      }.merge(model.attributes), status: 569
     end
   end
 end
