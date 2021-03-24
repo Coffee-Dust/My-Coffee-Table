@@ -1,10 +1,18 @@
 
+document.addEventListener("DOMContentLoaded", function() {
+
+})
 
 
 
 
 
-
+function loadScriptFile(filename) {
+  console.log(`Loading Script: ${filename}`)
+  var script = document.createElement('script');
+  script.src = "./js/" + filename;
+  document.body.appendChild(script)
+}
 
 function consoleLoadMessage() {
 
