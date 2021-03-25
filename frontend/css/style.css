@@ -62,7 +62,6 @@ body {
   background-color: rgba(245, 222, 179, 0.4);
   width: 100%;
   height: 100%;
-  padding: 10px;
   top: 0px;
   left: 0px;
   position: fixed;
@@ -76,6 +75,17 @@ body {
   position: relative;
   height: 300px;
   width: 35%;
+  padding: 10px;
   background-color: whitesmoke;
   box-shadow: 1px 1px 25px 10px rgba(0,0,0,0.8);
+}
+
+#popupMenu div h1 {
+  content: "Make an account!";
+  font-family: fantasy;
+  color: #663b24;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+
 }
