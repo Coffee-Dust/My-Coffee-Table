@@ -1,11 +1,10 @@
-
 document.addEventListener("DOMContentLoaded", function() {
+  consoleLoadMessage()
+  loadScriptFile("util/ajax.js")
+  loadScriptFile("user.js")
 
+  loadScriptFile("index.js")
 })
-
-
-
-
 
 function loadScriptFile(filename) {
   console.log(`Loading Script: ${filename}`)
