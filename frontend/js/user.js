@@ -12,6 +12,7 @@ class User {
 
   static addListeners() {
     this.addLoginFormListener()
+    this.addSignupButtonListener()
   }
 
   static addLoginFormListener() {
@@ -27,6 +28,45 @@ class User {
         }, 69000)
 
       }).then(user=> { if (!user.errors) { new User(user).login() } })
+
+    })
+  }
+
+  static addSignupButtonListener() {
+
+    document.querySelector("#signup_button").addEventListener("click", (event)=>{
+
+      View.presentPopup(popupNode=>{
+        const h1 = popupNode.appendChild(document.createElement('h1')); h1.textContent = "Make a new account."
+        const form = popupNode.appendChild(document.createElement('form'))
+
+        const userAttrs = ["name", "email"]
+
+        for (let i = 0; i < userAttrs.length; i++) {
+          const attribute = userAttrs[i]
+          const input = form.appendChild(document.createElement('input'))
+          input.type = "text"; input.name = `${attribute}`; input.placeholder = `Enter your ${attribute}.`;
+
+          if (i === userAttrs.length - 1) {
+            const submit = form.appendChild(document.createElement('input'))
+            submit.type = "submit"
+          }
+        }
+
+        // Form submit event:
+        form.addEventListener("submit", (event)=> {
+          const formData = {
+            user: {
+              name: event.target.name.value,
+              email: event.target.email.value
+            }
+          }
+          event.preventDefault()
+          new AjaxCall("/users").postData(formData, (validationError)=> alert(`Error. ${validationError.errors.full_messages}`)
+          ).then(user => { if (!user.errors) { new User(user).login() } })
+        })
+
+      }) //endof presentPopup
 
     })
   }
