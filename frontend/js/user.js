@@ -1,5 +1,15 @@
 class User {
 
+  constructor(user_json) {
+    if (!user_json.id) {
+      console.error("Invalid object passed into User.contructor: ")
+      console.error(user_json)
+    }
+    this.id = user_json.id
+    this.name = user_json.name
+    this.email = user_json.email
+  }
+
   static addLoginFormListener() {
     document.querySelector("#login_form").addEventListener("submit", (event)=>{
       event.preventDefault()
