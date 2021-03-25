@@ -87,5 +87,14 @@ body {
   font-size: 1.3em;
   font-weight: bold;
   text-align: center;
+}
 
+.popupCloseButton {
+  border-radius: 100px;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 1.4em;
+  background-color: darkred;
+  color: whitesmoke;
 }
