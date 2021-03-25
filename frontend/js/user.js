@@ -10,6 +10,10 @@ class User {
     this.email = user_json.email
   }
 
+  static addListeners() {
+    this.addLoginFormListener()
+  }
+
   static addLoginFormListener() {
     document.querySelector("#login_form").addEventListener("submit", (event)=>{
       event.preventDefault()
