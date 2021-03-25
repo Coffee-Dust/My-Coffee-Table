@@ -26,7 +26,7 @@ class User {
           event.target.user_email.placeholder = "Enter your email."
         }, 69000)
 
-      }).then(user=> new User(user).login() )
+      }).then(user=> { if (!user.errors) { new User(user).login() } })
 
     })
   }
