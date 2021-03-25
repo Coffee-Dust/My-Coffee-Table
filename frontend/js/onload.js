@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   consoleLoadMessage()
   loadScriptFile("util/ajax.js")
+  loadScriptFile("util/view.js")
   loadScriptFile("user.js")
 
   loadScriptFile("index.js")
