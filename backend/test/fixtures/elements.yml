@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coffee_table_id: 1
+  style_id: 1
+  elementable_type: MyString
+  elementable_id: 1
+
+two:
+  coffee_table_id: 1
+  style_id: 1
+  elementable_type: MyString
+  elementable_id: 1
