@@ -26,3 +26,19 @@ class Element {
 
 }
 
+class FancyLink {
+  constructor(element) {
+    this.data = element.data.elementable
+    
+    this.node = this.createNode()
+
+  }
+  
+  createNode() {
+    const a = document.createElement("a")
+    a.href = this.data.url
+    a.textContent = this.data.textContent
+
+    return a
+  }
+}
