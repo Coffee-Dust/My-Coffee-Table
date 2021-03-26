@@ -5,7 +5,7 @@ class CoffeeTable {
     if(!tableData.id) {
       console.error("Did not receive valid CoffeeTable data for User: " + self.currentUser.id)
       console.error(tableData)
-      new Error("Invalid Coffeetable Data")
+      throw new Error("Invalid Coffeetable Data")
     } 
 
     this.id = tableData.id
