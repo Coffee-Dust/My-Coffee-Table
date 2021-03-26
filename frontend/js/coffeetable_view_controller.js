@@ -2,6 +2,11 @@ class CoffeeTableViewController {
 
   constructor(coffeeTable) {
     this.coffeeTable = coffeeTable
+    this.view = document.querySelector("#coffee_table_view")
+
+    if (!this.view) {
+      throw new Error(`Could not find HTMLElement #coffee_table_view`)
+    }
   }
 
   loadElements() {
