@@ -14,9 +14,15 @@ class CoffeeTable {
     this.elements = []
     this.user = tableData.user
 
-    for (const element of tableData.elements) {
-      this.elements.push(new Element(element))
-    }
+    this.getElements().then(elementsData=> {
+      for (const elementData of elementsData) {
+        this.elements.push(new Element(elementData))
+      }
+    })
+  }
+
+  getElements() {
+    return new AjaxCall(`/users/${this.user.id}/coffee_table/elements`).getData()
   }
 
   static loadForUser(user) {
