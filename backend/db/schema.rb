@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_143602) do
+ActiveRecord::Schema.define(version: 2021_03_26_152620) do
 
   create_table "coffee_tables", force: :cascade do |t|
     t.string "nickname"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 2021_03_26_143602) do
     t.integer "style_id"
     t.string "elementable_type"
     t.integer "elementable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "className"
+  end
+
+  create_table "fancy_links", force: :cascade do |t|
+    t.string "url"
+    t.string "textContent"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "cssText"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
