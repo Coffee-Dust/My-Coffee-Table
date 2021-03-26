@@ -19,8 +19,9 @@ class CoffeeTable {
   }
 
   static loadForUser(user) {
-    new AjaxCall(`/users/${user.id}/coffee_table`).getData().then(coffeeTable=> {
-      self.coffeeTableViewController = new CoffeeTableViewController(new CoffeeTable(coffeeTable))
+    new AjaxCall(`/users/${user.id}/coffee_table`).getData().then(coffeeTableData=> {
+      // Setting a new global CoffeeTableViewController instance
+      self.ctViewController = new CoffeeTableViewController(new CoffeeTable(coffeeTableData))
     })
   }
 
