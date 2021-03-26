@@ -10,6 +10,11 @@ class User {
     this.email = user_json.email
   }
 
+  login() {
+    CoffeeTable.loadForUser(this)
+    self.currentUser = this
+  }
+
   static addListeners() {
     this.addLoginFormListener()
     this.addSignupButtonListener()
