@@ -1,0 +1,2 @@
+class FancyLink < ApplicationRecord
+end
