@@ -4,6 +4,12 @@ class CoffeeTableViewController {
     this.coffeeTable = coffeeTable
   }
 
+  loadElements() {
+    for (const element of this.coffeeTable.elements) {
+      this.view.appendChild(element.node)
+    }
+  }
+
   set coffeeTable(tableClass) {
     if (tableClass.constructor.name === "CoffeeTable") {
       this._coffeeTable = tableClass
