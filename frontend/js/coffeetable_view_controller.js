@@ -17,4 +17,12 @@ class CoffeeTableViewController {
     return this._coffeeTable
   }
 
+  static fixTableSize() {
+    setSize()
+    window.addEventListener("resize", setSize)
+    function setSize() {
+      document.querySelector("#coffee_table_view").style.height = window.innerHeight + "px"
+    }
+  }
+
 }
