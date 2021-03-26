@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
   loadScriptFile("util/ajax.js")
   loadScriptFile("util/view.js")
   loadScriptFile("user.js")
+  loadScriptFile("coffeetable_view_controller.js")
+  loadScriptFile("coffee_table.js")
+  loadScriptFile("element.js")
 
   loadScriptFile("index.js")
 })
