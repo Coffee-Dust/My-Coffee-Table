@@ -12,6 +12,7 @@ class CoffeeTable {
     this.nickname = tableData.nickname
     this.backgroundType = tableData.background_type
     this.elements = []
+    this.user = tableData.user
 
     for (const element of tableData.elements) {
       this.elements.push(new Element(element))
