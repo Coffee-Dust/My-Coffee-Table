@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+
   post 'login', to: 'sessions#create'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   resources :users, only: [:show, :create] do
+
     get "coffee_table", to: 'coffee_tables#show'
+
+    namespace 'coffee_table' do
+      resources :elements
+    end
+    
   end
+
 end
