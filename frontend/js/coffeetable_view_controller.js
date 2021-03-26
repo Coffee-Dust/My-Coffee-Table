@@ -20,7 +20,7 @@ class CoffeeTableViewController {
       this._coffeeTable = tableClass
     } else {
       console.log(this)
-      new Error(`Tried to set an instance of ${tableClass.constructor.name} to this.coffeeTable`)
+      throw new Error(`Tried to set an instance of ${tableClass.constructor.name} to this.coffeeTable`)
     }
   }
 
