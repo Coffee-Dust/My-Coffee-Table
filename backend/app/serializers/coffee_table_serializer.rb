@@ -9,7 +9,7 @@ class CoffeeTableSerializer
       only: [:id, :nickname, :background_type],
       include: {
         user: {
-          only: [:id, :name, :email]
+          only: [:id]
         }
       }
     }
