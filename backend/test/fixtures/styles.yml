@@ -1,21 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  top: MyString
-  left: MyString
-  right: MyString
-  bottom: MyString
-  classList: MyString
-  height: MyString
-  width: MyString
-  color: MyString
+  cssText: MyString
 
 two:
-  top: MyString
-  left: MyString
-  right: MyString
-  bottom: MyString
-  classList: MyString
-  height: MyString
-  width: MyString
-  color: MyString
+  cssText: MyString

@@ -2,8 +2,8 @@
 
 one:
   url: MyString
-  content: MyString
+  textContent: MyString
 
 two:
   url: MyString
-  content: MyString
+  textContent: MyString
