@@ -57,6 +57,10 @@ body {
   box-sizing: border-box;
 }
 
+.field_with_errors {
+  border: solid 1px red;
+}
+
 #popupMenu {
   z-index: 69;
   background-color: rgba(245, 222, 179, 0.4);
