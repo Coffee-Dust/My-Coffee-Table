@@ -1,10 +1,7 @@
 class ElementSerializer
-  def initialize(element, options=nil)
-    @element = element
-  end
 
-  def to_serialized_json
-    options = {
+  def self.options
+    @@options = {
       only: [:id, :className, :elementable_type],
       include: {
         style: {
@@ -15,6 +12,13 @@ class ElementSerializer
         }
       }
     }
-    @element.to_json(options)
+  end
+
+  def initialize(element, options=nil)
+    @element = element
+  end
+
+  def to_serialized_json
+    @element.to_json(@@options)
   end
 end
