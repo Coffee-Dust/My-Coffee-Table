@@ -10,7 +10,8 @@ class CoffeeTableSerializer
       include: {
         user: {
           only: [:id]
-        }
+        },
+        elements: ElementSerializer.options
       }
     }
 
