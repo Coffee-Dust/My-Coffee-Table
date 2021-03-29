@@ -57,4 +57,15 @@ class FancyLink {
 
     return a
   }
+
+  static creationForm() {
+    const form = document.createElement("form")
+    form.innerHTML = `
+    <input type="hidden" name="elementable[type]" value="FancyLink">
+    <input type="text" name="elementable[url]" placeholder="Website Link">
+    <input type="text" name="elementable[textContent]" placeholder="Text To Display">
+    <input type="submit">
+    `
+    return form
+  }
 }
