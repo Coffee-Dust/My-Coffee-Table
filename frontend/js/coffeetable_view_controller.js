@@ -17,6 +17,26 @@ class CoffeeTableViewController {
     }
   }
 
+  onEditModeIsActive(eventButton) {
+    // New Element Button Creation
+    const newElementButton = document.querySelector("#new_element_button")
+    if (!newElementButton) {
+      const btn = document.createElement("button")
+      btn.id = "new_element_button"; btn.textContent = "Add New Element"
+      btn.addEventListener("click", (event)=>{
+        //do fancy stuff
+      })
+      this.view.appendChild(btn)
+    } else {
+      newElementButton.hidden = false
+    }
+    
+  }
+
+  onEditModeIsExited(eventButton) {
+    document.querySelector("#new_element_button").hidden = true
+  }
+
   displayEditButton() {
     const btn = document.createElement("button")
     btn.id = "edit_button"; btn.textContent = "Edit Mode"
@@ -24,20 +44,12 @@ class CoffeeTableViewController {
       if (this.editModeIsActive) {
         this.editModeIsActive = false
         event.target.textContent = "Edit Mode"
+        this.onEditModeIsExited(event.target)
       } else {
         this.editModeIsActive = true
         event.target.textContent = "Exit Edit Mode"
+        this.onEditModeIsActive(event.target)
       }
-      
-    })
-    this.view.appendChild(btn)
-  }
-
-  displayNewElementBtn() {
-    const btn = document.createElement("button")
-    btn.id = "new_element_button"; btn.textContent = "Add New Element"
-    btn.addEventListener("click", (event)=>{
-      //do fancy stuff
     })
     this.view.appendChild(btn)
   }
