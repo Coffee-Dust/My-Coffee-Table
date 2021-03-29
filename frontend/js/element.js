@@ -24,10 +24,22 @@ class Element {
     }
   }
 
+  // Class Methods
+  static displayCreationFormForTypeOn(type, parent) {
+    switch (type) {
+      case "FancyLink":
+        parent.appendChild(FancyLink.creationForm())
+        break;
+    
+      default:
+        break;
+    }
+  }
 
   static get types() {
     return ["FancyLink"]
   }
+
 }
 
 class FancyLink {
