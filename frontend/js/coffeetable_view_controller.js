@@ -24,13 +24,13 @@ class CoffeeTableViewController {
       const btn = document.createElement("button")
       btn.id = "new_element_button"; btn.textContent = "Add New Element"
       btn.addEventListener("click", (event)=>{
-        //do fancy stuff
+        this.displayNewElementPopup(event)
       })
       this.view.appendChild(btn)
     } else {
       newElementButton.hidden = false
     }
-    
+
   }
 
   onEditModeIsExited(eventButton) {
@@ -52,6 +52,19 @@ class CoffeeTableViewController {
       }
     })
     this.view.appendChild(btn)
+  }
+
+  displayNewElementPopup(event) {
+    View.presentPopup((popupParent)=>{
+      for (const type of Element.types) {
+        const elementTypeBtn = document.createElement("button")
+        elementTypeBtn.textContent = `New ${type}`
+        elementTypeBtn.addEventListener("click", (event)=>{
+          Element.displayCreationFormForTypeOn(type, event.target)
+        })
+        popupParent.appendChild(elementTypeBtn)
+      }
+    })
   }
 
   set coffeeTable(tableClass) {
