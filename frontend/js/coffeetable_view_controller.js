@@ -33,6 +33,15 @@ class CoffeeTableViewController {
     this.view.appendChild(btn)
   }
 
+  displayNewElementBtn() {
+    const btn = document.createElement("button")
+    btn.id = "new_element_button"; btn.textContent = "Add New Element"
+    btn.addEventListener("click", (event)=>{
+      //do fancy stuff
+    })
+    this.view.appendChild(btn)
+  }
+
   set coffeeTable(tableClass) {
     if (tableClass.constructor.name === "CoffeeTable") {
       this._coffeeTable = tableClass
