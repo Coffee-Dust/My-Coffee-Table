@@ -14,6 +14,11 @@
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(7px);
   box-shadow: 1px 1px 25px 10px rgba(0,0,0,0.8);
+  transition: width 1s;
+}
+
+#header_bar.animate_close {
+  width: 230px;
 }
 
 #header_bar a {
@@ -23,6 +28,8 @@
   font-size: 1.2em;
   font-weight: bold;
   float: left;
+  pointer-events: none;
+
 }
 
 nav ul {
