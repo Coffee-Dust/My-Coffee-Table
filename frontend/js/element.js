@@ -24,6 +24,10 @@ class Element {
     }
   }
 
+
+  static get types() {
+    return ["FancyLink"]
+  }
 }
 
 class FancyLink {
