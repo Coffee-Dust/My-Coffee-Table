@@ -66,6 +66,17 @@ class FancyLink {
     <input type="text" name="elementable[textContent]" placeholder="Text To Display">
     <input type="submit">
     `
+    form.addEventListener("submit", (event)=>{
+      event.preventDefault()
+      const formData = {}
+      console.log(event.target)
+
+      for (const input of event.target.elements) {
+        console.log(input.name)
+        formData[input.name] = input.value
+      }
+      console.log(formData)
+    })
     return form
   }
 }
