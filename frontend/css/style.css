@@ -109,3 +109,16 @@ body {
   background-color: darkred;
   color: whitesmoke;
 }
+
+/* CoffeeTable View and Elements */
+#coffee_table_view #edit_button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#coffee_table_view #new_element_button {
+  position: absolute;
+  top: 10px;
+  right: 200px;
+}
