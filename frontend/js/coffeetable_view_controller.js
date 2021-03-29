@@ -59,8 +59,11 @@ class CoffeeTableViewController {
       for (const type of Element.types) {
         const elementTypeBtn = document.createElement("button")
         elementTypeBtn.textContent = `New ${type}`
+
         elementTypeBtn.addEventListener("click", (event)=>{
-          Element.displayCreationFormForTypeOn(type, event.target)
+          if (!event.target.querySelector("form")) {
+            Element.displayCreationFormForTypeOn(type, event.target)
+          }
         })
         popupParent.appendChild(elementTypeBtn)
       }
