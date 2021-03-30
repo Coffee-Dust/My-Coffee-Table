@@ -9,6 +9,21 @@ class CoffeeTableViewController {
       throw new Error(`Could not find HTMLElement #coffee_table_view`)
     }
     this.displayEditButton()
+
+    // Drag Events //
+
+    this.drag = {
+      active: false,
+      initialX: null,
+      initialY: null,
+      currentX: null,
+      currentY: null,
+      xOffset: 0,
+      yOffset: 0
+    }
+    this.view.addEventListener("mousedown", (e)=>this.dragStart(e))
+    // this.view.addEventListener("mousemove", (e)=>this.drag(e))
+    // this.view.addEventListener("mouseup", (e)=>this.dragEnd(e))
   }
 
   // Element Node CRUD Functions //
