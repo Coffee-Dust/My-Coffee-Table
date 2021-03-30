@@ -11,6 +11,7 @@ class CoffeeTableViewController {
     this.displayEditButton()
   }
 
+  // Element Node CRUD Functions //
   loadElements() {
     for (const element of this.coffeeTable.elements) {
       this.view.appendChild(element.node)
@@ -25,6 +26,8 @@ class CoffeeTableViewController {
   updateElementWithID(id) {
 
   }
+
+  // Edit Mode Functions //
 
   onEditModeIsActive(eventButton) {
     // New Element Button Creation
@@ -46,6 +49,11 @@ class CoffeeTableViewController {
     document.querySelector("#new_element_button").hidden = true
   }
 
+  // Drag Functions //
+
+  
+
+  // MISC UI Functions //
   displayEditButton() {
     const btn = document.createElement("button")
     btn.id = "edit_button"; btn.textContent = "Edit Mode"
