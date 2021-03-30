@@ -27,7 +27,7 @@ class Element {
   // Class Methods
 
   static create(data) {
-    return new AjaxCall(`/users/${self.currentUser.id}/coffee_table/elements`).postData(data).then((data)=>{
+    return new AjaxCall(`/users/${self.currentUser.id}/coffee_table/elements`).postData({element: data}).then((data)=>{
       if (data.errors) {
         return data
       } else {
@@ -63,14 +63,13 @@ class Element {
       const formData = {
         coffee_table_id: self.ctViewController.coffeeTable.id,
         className: event.target.className.value,
-        style: {cssText: event.target.cssText.value},
-        elementable: {}
+        style_attributes: {cssText: event.target.cssText.value},
+        elementable_attributes: {}
       }
 
       for (const input of event.target.querySelectorAll(".elementable")) {
-        console.log(event.target.querySelectorAll(".elementable"))
-        console.log(input.name)
-        formData.elementable[input.name] = input.value
+
+        formData.elementable_attributes[input.name] = input.value
       }
       this.create(formData).then(element=>{
         if (!element.errors) {
