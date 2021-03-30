@@ -27,7 +27,7 @@ class Element {
   // Class Methods
 
   static create(data) {
-    return new AjaxCall(`/users/${self.currentUser.id}/coffee_table/elements`).postData({element: data}).then((data)=>{
+    return new AjaxCall(`/users/${self.currentUser.id}/coffee_table/elements`).postData({element: data}, ()=>{}).then((data)=>{
       if (data.errors) {
         return data
       } else {
@@ -68,7 +68,9 @@ class Element {
       }
 
       for (const input of event.target.querySelectorAll(".elementable")) {
-
+        (input.name === "type") ? 
+        formData["elementable_type"] = input.value
+        :
         formData.elementable_attributes[input.name] = input.value
       }
       this.create(formData).then(element=>{
