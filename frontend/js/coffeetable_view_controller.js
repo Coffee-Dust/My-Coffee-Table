@@ -17,6 +17,15 @@ class CoffeeTableViewController {
     }
   }
 
+  addElement(element) {
+    this.coffeeTable.elements.push(element)
+    this.view.appendChild(element.node)
+  }
+
+  updateElementWithID(id) {
+
+  }
+
   onEditModeIsActive(eventButton) {
     // New Element Button Creation
     const newElementButton = document.querySelector("#new_element_button")
