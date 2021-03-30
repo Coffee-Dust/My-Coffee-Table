@@ -5,9 +5,8 @@ class Element < ApplicationRecord
 
   accepts_nested_attributes_for :style
 
-  def elementable_attributes=(data)
-    attributes = data.reject { |d| d == "type" }
-    self.elementable = data["type"].constantize.new(attributes)
+  def elementable_attributes=(attributes)
+    self.elementable = self.elementable_type.constantize.new(attributes)
   end
-  
+
 end
