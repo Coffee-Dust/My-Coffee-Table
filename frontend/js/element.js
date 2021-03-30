@@ -29,18 +29,53 @@ class Element {
   static create(data) {
 
   }
+// return new form node
+  static generateFormForTypeOn(type) {
+    const form = document.createElement("form")
 
-  static displayCreationFormForTypeOn(type, parent) {
-    switch (type) {
-      case "FancyLink":
-        parent.appendChild(FancyLink.creationForm())
-        break;
-    
-      default:
-        break;
+    // This will get the elementable inputs from their class //
+    const elementableInputs = function() {
+      switch (type) {
+        case "FancyLink":
+          return FancyLink.generateFormInputs()
+
+        default:
+          break;
+      }
     }
+
+    form.innerHTML = `
+    <input type="text" name="className" placeholder="className">
+    <input type="text" name="cssText" placeholder="styleOverride">
+    ${elementableInputs()}
+    <input type="submit">
+    `
+    
+    form.addEventListener("submit", (event)=>{
+      event.preventDefault()
+      const formData = {
+        coffee_table_id: self.ctViewController.coffeeTable.id,
+        className: event.target.className.value,
+        style: {cssText: event.target.cssText.value},
+        elementable: {}
+      }
+
+      for (const input of event.target.querySelectorAll(".elementable")) {
+        console.log(event.target.querySelectorAll(".elementable"))
+        console.log(input.name)
+        formData.elementable[input.name] = input.value
+      }
+      this.create(formData).then(element=>{
+        if (!element.errors) {
+          self.ctViewController.addElement(element)
+        }
+      })
+    })
+
+    return form
   }
 
+  
   static get types() {
     return ["FancyLink"]
   }
