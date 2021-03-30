@@ -27,9 +27,16 @@ class Element {
   // Class Methods
 
   static create(data) {
-
+    return new AjaxCall(`/users/${self.currentUser.id}/coffee_table/elements`).postData(data).then((data)=>{
+      if (data.errors) {
+        return data
+      } else {
+        return new this(data)
+      }
+    })
   }
-// return new form node
+
+
   static generateFormForTypeOn(type) {
     const form = document.createElement("form")
 
@@ -75,7 +82,7 @@ class Element {
     return form
   }
 
-  
+
   static get types() {
     return ["FancyLink"]
   }
