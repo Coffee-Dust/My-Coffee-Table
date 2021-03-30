@@ -13,5 +13,8 @@ class View {
 
     callback(popupBox)
   }
+  static removePopup() {
+    document.querySelector("#popupMenu").remove()
+  }
 
 }
