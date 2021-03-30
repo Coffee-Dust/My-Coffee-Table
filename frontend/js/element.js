@@ -76,6 +76,9 @@ class Element {
       this.create(formData).then(element=>{
         if (!element.errors) {
           self.ctViewController.addElement(element)
+          View.removePopup()
+        } else {
+          //display validation errors:
         }
       })
     })
