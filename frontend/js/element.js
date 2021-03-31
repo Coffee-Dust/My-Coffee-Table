@@ -16,11 +16,16 @@ class Element {
     const editBar = document.createElement('div')
     editBar.classList.add("edit_bar")
     editBar.hidden = true
+
     const editButton = document.createElement('button')
     editButton.textContent = "Edit"
     editBar.appendChild(editButton)
+
     const deleteButton = document.createElement('button')
     deleteButton.textContent = "Trash"
+    deleteButton.addEventListener("click", _=> {
+      this.delete()
+    })
     editBar.appendChild(deleteButton)
 
     node.appendChild(editBar)
