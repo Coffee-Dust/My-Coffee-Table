@@ -54,6 +54,20 @@ class Element {
     this.node.style.top = `${topOffset}px`
   }
 
+  updateWith(newData) {
+    return new AjaxCall(`/users/${self.currentUser.id}/coffee_table/elements/${this.data.id}`)
+      .postData({element: newData}, _=>{alert("Error Occurred While Updating.\nPlease Try Again.")}, "PATCH")
+    .then(updatedData=> {
+      if (!updatedData.errors && this.data.id === updatedData.id) {
+        this.data = updatedData
+        this.data.elementableType = updatedData.elementable_type
+        return this
+      } else {
+        return updatedData
+      }
+    })
+  }
+
   delete() {
     new AjaxCall(`/users/${self.currentUser.id}/coffee_table/elements/${this.data.id}`)
     .postData({}, _=>{alert("Something went wrong when deleting this element.\nPlease try again.")}, "DELETE")
@@ -118,11 +132,12 @@ class Element {
         :
         formData.elementable_attributes[input.name] = input.value
       }
+      
       // Use Update method if elementToUpdate exists
       if (elementToUpdate) {
-        this.update(formData).then(element=>{
+        elementToUpdate.updateWith(formData).then(element=>{
           if (!element.errors) {
-            self.ctViewController.addElement(element)
+            self.ctViewController.updateElement(element)
             View.removePopup()
           } else {
             //display validation errors:
