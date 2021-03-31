@@ -12,6 +12,19 @@ class Element {
     node.className = this.data.className
     node.style.cssText = this.data.style.cssText
     node.appendChild(this.createElementableNode())
+
+    const editBar = document.createElement('div')
+    editBar.classList.add("edit_bar")
+    editBar.hidden = true
+    const editButton = document.createElement('button')
+    editButton.textContent = "Edit"
+    editBar.appendChild(editButton)
+    const deleteButton = document.createElement('button')
+    deleteButton.textContent = "Trash"
+    editBar.appendChild(deleteButton)
+
+    node.appendChild(editBar)
+
     return node
   }
 
