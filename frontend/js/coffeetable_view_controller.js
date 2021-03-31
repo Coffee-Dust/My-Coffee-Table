@@ -65,11 +65,19 @@ class CoffeeTableViewController {
     } else {
       newElementButton.hidden = false
     }
+    // ---------------------------
+    for (const element of this.coffeeTable.elements) {
+      element.editBar.hidden = false
+    }
 
   }
 
   onEditModeIsExited(eventButton) {
     document.querySelector("#new_element_button").hidden = true
+
+    for (const element of this.coffeeTable.elements) {
+      element.editBar.hidden = true
+    }
   }
 
   // Drag Functions //
