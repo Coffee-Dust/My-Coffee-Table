@@ -66,7 +66,7 @@ class Element {
   }
 
 
-  static generateFormForTypeOn(type) {
+  static generateFormForTypeOn(type, elementToUpdate=null) {
     const form = document.createElement("form")
 
     // This will get the elementable inputs from their class //
@@ -86,6 +86,15 @@ class Element {
     ${elementableInputs()}
     <input type="submit">
     `
+
+    if (elementToUpdate) {
+      // Pre-populate form with existing data.
+      for (const input of form.querySelectorAll(".elementable")) {
+        if (input.name !== "type") {
+          input.value = elementToUpdate.data.elementable[input.name]
+        }
+      }
+    }
     
     form.addEventListener("submit", (event)=>{
       event.preventDefault()
@@ -102,14 +111,26 @@ class Element {
         :
         formData.elementable_attributes[input.name] = input.value
       }
-      this.create(formData).then(element=>{
-        if (!element.errors) {
-          self.ctViewController.addElement(element)
-          View.removePopup()
-        } else {
-          //display validation errors:
-        }
-      })
+      // Use Update method if elementToUpdate exists
+      if (elementToUpdate) {
+        this.update(formData).then(element=>{
+          if (!element.errors) {
+            self.ctViewController.addElement(element)
+            View.removePopup()
+          } else {
+            //display validation errors:
+          }
+        })
+      } else {
+        this.create(formData).then(element=>{
+          if (!element.errors) {
+            self.ctViewController.addElement(element)
+            View.removePopup()
+          } else {
+            //display validation errors:
+          }
+        })
+      }
     })
 
     return form
