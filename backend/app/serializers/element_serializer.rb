@@ -19,6 +19,6 @@ class ElementSerializer
   end
 
   def to_serialized_json
-    @element.to_json(@@options)
+    @element.to_json(self.class.options)
   end
 end
