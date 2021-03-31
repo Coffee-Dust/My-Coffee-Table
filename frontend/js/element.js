@@ -19,6 +19,13 @@ class Element {
     
     const editButton = document.createElement('button')
     editButton.textContent = "Edit"
+    editButton.addEventListener("click", event=>{
+      View.presentPopup(popupParent=>{
+        popupParent.innerHTML = `<h2>Editing This ${this.data.elementableType}</h2>`
+        const form = Element.generateFormForTypeOn(this.data.elementableType, this)
+        popupParent.appendChild(form)
+      })
+    })
     editBar.appendChild(editButton)
 
     const deleteButton = document.createElement('button')
