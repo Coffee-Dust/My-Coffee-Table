@@ -17,6 +17,16 @@ class CoffeeTable::ElementsController < ApplicationController
     end
   end
 
+  def destroy
+    run_block_or_render_error do
+      element = User.find(params[:user_id]).coffee_table.elements.where(id: params[:id])[0]
+      json = ElementSerializer.new(element).to_serialized_json
+      if element.delete
+        render json: json
+      end
+    end
+  end
+
   private
 
   def element_params
