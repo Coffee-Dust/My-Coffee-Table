@@ -34,8 +34,8 @@ class Element {
       this.delete()
     })
     editBar.appendChild(deleteButton)
-
-    node.appendChild(editBar)
+    this.editBar = editBar
+    node.appendChild(this.editBar)
 
     return node
   }
@@ -132,7 +132,7 @@ class Element {
         :
         formData.elementable_attributes[input.name] = input.value
       }
-      
+
       // Use Update method if elementToUpdate exists
       if (elementToUpdate) {
         elementToUpdate.updateWith(formData).then(element=>{
