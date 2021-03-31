@@ -123,6 +123,12 @@ body {
   right: 200px;
 }
 
+main div {
+  position: absolute;
+  padding: 10px;
+  background-color: whitesmoke;
+}
+
 .element {
   position: absolute;
   left: 320px;
@@ -130,7 +136,8 @@ body {
   background-color: whitesmoke;
 }
 
-.element .edit_bar {
+.edit_bar {
+  padding: 0px;
   position: absolute;
   top: -20px;
   left: 0px;
