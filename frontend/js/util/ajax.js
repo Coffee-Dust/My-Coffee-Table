@@ -4,9 +4,9 @@ class AjaxCall {
     this.url = url
   }
 
-  postData(body, failedValidationCallback) {
+  postData(body, failedValidationCallback, method="POST") {
     const config = {
-      method: "POST",
+      method: method,
       headers: { 
       "Content-Type": "application/json", 
       "Accept": "application/json"
