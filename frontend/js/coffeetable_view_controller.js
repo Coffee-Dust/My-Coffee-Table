@@ -39,7 +39,9 @@ class CoffeeTableViewController {
   }
 
   updateElement(element) {
-
+    element.node.remove()
+    element.node = element.createNode()
+    this.view.appendChild(element.node)
   }
 
   removeElement(element) {
