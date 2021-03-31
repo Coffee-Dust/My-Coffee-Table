@@ -21,7 +21,8 @@ class Element {
     editButton.textContent = "Edit"
     editButton.addEventListener("click", event=>{
       View.presentPopup(popupParent=>{
-        popupParent.innerHTML = `<h2>Editing This ${this.data.elementableType}</h2>`
+        const h2 = document.createElement("h2"); h2.textContent = `Editing ${this.data.elementableType}`
+        popupParent.appendChild(h2)
         const form = Element.generateFormForTypeOn(this.data.elementableType, this)
         popupParent.appendChild(form)
       })
