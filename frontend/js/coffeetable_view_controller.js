@@ -42,6 +42,12 @@ class CoffeeTableViewController {
 
   }
 
+  removeElement(element) {
+    const index = this.coffeeTable.elements.findIndex(ctElement => ctElement.data.id === element.id)
+    this.coffeeTable.elements[index].node.remove()
+    this.coffeeTable.elements.splice(index, 1)
+  }
+
   // Edit Mode Functions //
 
   onEditModeIsActive(eventButton) {
