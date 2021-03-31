@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
   loadScriptFile("coffeetable_view_controller.js")
   loadScriptFile("coffee_table.js")
   loadScriptFile("element.js")
+  loadScriptFile("elementable.js")
 
   loadScriptFile("index.js")
 })
