@@ -122,3 +122,10 @@ body {
   top: 10px;
   right: 200px;
 }
+
+.element {
+  position: absolute;
+  left: 320px;
+  top: 75px;
+  background-color: whitesmoke;
+}
