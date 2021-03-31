@@ -129,3 +129,18 @@ body {
   top: 75px;
   background-color: whitesmoke;
 }
+
+.element .edit_bar {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  height: 20px;
+  width: 100%;
+  cursor: grab;
+  background-color: rgba(245, 222, 179, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(7px);
+}
+.edit_bar button {
+  font-size: 0.7em;
+}
