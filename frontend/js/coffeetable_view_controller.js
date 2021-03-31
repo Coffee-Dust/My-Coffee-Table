@@ -38,7 +38,7 @@ class CoffeeTableViewController {
     this.view.appendChild(element.node)
   }
 
-  updateElementWithID(id) {
+  updateElement(element) {
 
   }
 
