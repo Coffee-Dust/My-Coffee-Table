@@ -16,7 +16,7 @@ class Element {
     const editBar = document.createElement('div')
     editBar.classList.add("edit_bar")
     editBar.hidden = true
-
+    
     const editButton = document.createElement('button')
     editButton.textContent = "Edit"
     editBar.appendChild(editButton)
@@ -45,6 +45,12 @@ class Element {
   setPosition(leftOffset, topOffset) {
     this.node.style.left = `${leftOffset}px`
     this.node.style.top = `${topOffset}px`
+  }
+
+  delete() {
+    new AjaxCall(`/users/${self.currentUser.id}/coffee_table/elements/${this.data.id}`)
+    .postData({}, _=>{alert("Something went wrong when deleting this element.\nPlease try again.")}, "DELETE")
+    .then(element=> self.ctViewController.removeElement(element))
   }
 
   // Class Methods
