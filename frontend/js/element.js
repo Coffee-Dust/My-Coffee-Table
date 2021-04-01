@@ -50,6 +50,10 @@ class Element {
     }
   }
 
+  get position() {
+    return { x: Number(this.node.style.left.split("px")[0]), y: Number(this.node.style.top.split("px")[0])}
+  }
+
   setPosition(leftOffset, topOffset) {
     this.node.style.left = `${leftOffset}px`
     this.node.style.top = `${topOffset}px`
