@@ -129,6 +129,11 @@ class Element {
 
     if (elementToUpdate) {
       // Pre-populate form with existing data.
+
+      form.querySelector("input[name=cssText]").value = elementToUpdate.data.style.cssText
+      form.querySelector("input[name=className]").value = elementToUpdate.data.className
+
+      // Populate elementable data:
       for (const input of form.querySelectorAll(".elementable")) {
         if (input.name !== "type") {
           input.value = elementToUpdate.data.elementable[input.name]
