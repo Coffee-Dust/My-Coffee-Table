@@ -20,5 +20,13 @@ class View {
 }
 
 class DragEvent {
+  constructor(controller) {
+    this.controller = controller
+    this.view = controller.view
+    this.active = false
+    this.positionsDefault = {
+      offset: { x: null, y: null }
+    }
+  }
 
 }
