@@ -23,6 +23,7 @@ class CoffeeTableViewController {
   }
 
   addElement(element) {
+    element.editBar.hidden = false
     this.coffeeTable.elements.push(element)
     this.view.appendChild(element.node)
   }
@@ -30,6 +31,7 @@ class CoffeeTableViewController {
   updateElement(element) {
     element.node.remove()
     element.node = element.createNode()
+    element.editBar.hidden = false
     this.view.appendChild(element.node)
   }
 
