@@ -18,13 +18,23 @@ class CoffeeTable::ElementsController < ApplicationController
   end
 
   def update
+
     element = User.find(params[:user_id]).coffee_table.elements.where(id: params[:id])[0]
+
     validate_model_with_block_or_render_error(element) do
 
-      element.elementable.update!(element_params[:elementable_attributes])
-      element.style.update!(element_params[:style_attributes])
+      if elementable_params = element_params[:elementable_attributes]
+        element.elementable.update!(elementable_params)
+      end
+      
+      if style_params = element_params[:style_attributes]
+        element.style.update!(style_params)
+      end
 
-      element.className = element_params[:className]
+      if class_name = element_params[:className]
+        element.className = class_name
+      end
+
       if element.save!
         render json: ElementSerializer.new(element).to_serialized_json
       end
@@ -51,7 +61,7 @@ class CoffeeTable::ElementsController < ApplicationController
       :className,
       :elementable_type,
       style_attributes: [:cssText],
-      elementable_attributes: type.constantize.attribute_names
+      elementable_attributes: type ? type.constantize.attribute_names : []
     )
   end
 
