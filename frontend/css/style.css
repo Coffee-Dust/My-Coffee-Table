@@ -123,17 +123,9 @@ body {
   right: 200px;
 }
 
-main div {
-  position: absolute;
-  padding: 10px;
-  background-color: whitesmoke;
-}
-
 .element {
   position: absolute;
-  left: 320px;
-  top: 75px;
-  background-color: whitesmoke;
+  padding: 10px;
 }
 
 .edit_bar {
@@ -150,4 +142,40 @@ main div {
 }
 .edit_bar button {
   font-size: 0.7em;
+}
+
+.fancy_link_style_1 {
+  background: none;
+}
+
+.fancy_link_style_1 a {
+  color: antiquewhite;
+  text-shadow: 3px 3px 5px rgba(0,0,0,0.9);
+  font-family: cursive;
+  font-size: 1.4em;
+  transition: color 1s;
+}
+
+.fancy_link_style_1 a:hover {
+  color: purple;
+}
+
+.fancy_link_style_2 {
+  background-color: rgba(0, 100, 0, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(7px);
+  box-shadow: 1px 1px 25px 10px rgba(0,0,0,0.3);
+  border-radius: 5px;
+}
+
+.fancy_link_style_2 a {
+  color: lightgreen;
+  text-shadow: 3px 3px 5px rgba(0,0,0,0.9);
+  font-family: monospace;
+  font-size: 1.3em;
+  transition: color 1s;
+}
+
+.fancy_link_style_2 a:hover {
+  color: white;
 }
