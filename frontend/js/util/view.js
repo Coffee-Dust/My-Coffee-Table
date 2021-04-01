@@ -52,6 +52,9 @@ class DragEvent {
 
   dragEnd(event) {
     this.active = false;
+    if (this.element && this.controller.editModeIsActive) {
+      this.element.updatePosition()
+    }
     this.positions = this.positionsDefault
     this.element = null
   }
