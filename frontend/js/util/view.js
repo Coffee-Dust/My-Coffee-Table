@@ -28,8 +28,8 @@ class DragEvent {
       offset: { x: null, y: null }
     }
     this.view.addEventListener("mousedown", (e)=>this.dragStart(e))
-    // this.view.addEventListener("mousemove", (e)=>this.onDrag(e))
-    // this.view.addEventListener("mouseup", (e)=>this.dragEnd(e))
+    this.view.addEventListener("mousemove", (e)=>this.onDrag(e))
+    this.view.addEventListener("mouseup", (e)=>this.dragEnd(e))
   }
 
   dragStart(event) {
@@ -42,6 +42,18 @@ class DragEvent {
       this.positions.offset.x = event.clientX - this.element.position.x
       this.positions.offset.y = event.clientY - this.element.position.y
     }
+  }
+
+  onDrag(event) {
+    if (this.active && this.controller.editModeIsActive) {
+      this.element.setPosition(event.clientX - this.positions.offset.x, event.clientY - this.positions.offset.y)
+    }
+  }
+
+  dragEnd(event) {
+    this.active = false;
+    this.positions = this.positionsDefault
+    this.element = null
   }
 
 }
