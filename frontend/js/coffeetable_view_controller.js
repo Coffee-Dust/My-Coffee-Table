@@ -12,18 +12,7 @@ class CoffeeTableViewController {
 
     // Drag Events //
 
-    this.drag = {
-      active: false,
-      initialX: null,
-      initialY: null,
-      currentX: null,
-      currentY: null,
-      xOffset: 0,
-      yOffset: 0
-    }
-    this.view.addEventListener("mousedown", (e)=>this.dragStart(e))
-    // this.view.addEventListener("mousemove", (e)=>this.drag(e))
-    // this.view.addEventListener("mouseup", (e)=>this.dragEnd(e))
+    new DragEvent(this)
   }
 
   // Element Node CRUD Functions //
@@ -79,10 +68,6 @@ class CoffeeTableViewController {
       element.editBar.hidden = true
     }
   }
-
-  // Drag Functions //
-
-  
 
   // MISC UI Functions //
   displayEditButton() {
