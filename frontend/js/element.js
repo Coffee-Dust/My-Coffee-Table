@@ -88,6 +88,14 @@ class Element {
   // Class Methods
 
   static create(data) {
+    // Set default data
+    if (data.style_attributes.cssText === "") {
+      data.style_attributes.cssText = "top: 100px; left: 10px;"
+    } else {
+      data.style_attributes.cssText = "top: 100px; left: 10px; " + data.style_attributes.cssText
+    }
+    data.className = "element " + data.className
+    
     return new AjaxCall(`/users/${self.currentUser.id}/coffee_table/elements`).postData({element: data}, ()=>{}).then((data)=>{
       if (data.errors) {
         return data
