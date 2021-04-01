@@ -57,6 +57,7 @@ class Element {
   setPosition(leftOffset, topOffset) {
     this.node.style.left = `${leftOffset}px`
     this.node.style.top = `${topOffset}px`
+    this.data.style.cssText = this.node.style.cssText
   }
 
   updateWith(newData) {
@@ -71,6 +72,11 @@ class Element {
         return updatedData
       }
     })
+  }
+
+  updatePosition() {
+    return new AjaxCall(`/users/${self.currentUser.id}/coffee_table/elements/${this.data.id}`)
+    .postData({element: {style_attributes: {cssText: this.data.style.cssText}}}, _=> {alert("Error Occurred While Updating Position.\nPlease Try Again.")}, "PATCH")
   }
 
   delete() {
