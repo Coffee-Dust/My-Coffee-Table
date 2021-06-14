@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_152620) do
+ActiveRecord::Schema.define(version: 2021_06_13_233658) do
 
   create_table "coffee_tables", force: :cascade do |t|
     t.string "nickname"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 2021_03_26_152620) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "className"
+  end
+
+  create_table "fancy_iframes", force: :cascade do |t|
+    t.string "title"
+    t.string "caption"
+    t.string "width"
+    t.string "height"
+    t.string "src"
+    t.string "html_allow_attributes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "fancy_links", force: :cascade do |t|
