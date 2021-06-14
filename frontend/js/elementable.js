@@ -27,6 +27,14 @@ class FancyIframe {
 
   constructor(element) {
 
+    this.data = element.data.elementable
+
+    this.node = this.createNode()
+
+  }
+
+  createNode() {
+
   }
 
   static generateFormInputs() {
