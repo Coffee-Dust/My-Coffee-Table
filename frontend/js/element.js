@@ -114,7 +114,8 @@ class Element {
       switch (type) {
         case "FancyLink":
           return FancyLink.generateFormInputs()
-
+        case "FancyIframe":
+          return FancyIframe.generateFormInputs()
         default:
           break;
       }
