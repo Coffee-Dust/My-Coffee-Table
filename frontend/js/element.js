@@ -45,6 +45,8 @@ class Element {
     switch (this.data.elementableType) {
       case "FancyLink":
         return new FancyLink(this).node
+      case "FancyIframe":
+        return new FancyIframe(this).node
       default:
         throw new Error(`Elementable: ${this.data.elementableType} was not a known type`)
     }
