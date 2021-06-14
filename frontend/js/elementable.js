@@ -34,7 +34,23 @@ class FancyIframe {
   }
 
   createNode() {
+    const div = document.createElement("div")
+    div.classList.add("fancy_iframe")
 
+    const title = document.createElement("h4")
+    title.textContent = this.data.title
+    div.appendChild(title)
+    const caption = document.createElement("p")
+    caption.textContent = this.data.caption
+    div.appendChild(caption)
+
+    const iframe = document.createElement("iframe")
+    iframe.src = this.data.src
+    iframe.height = this.data.height
+    iframe.width = this.data.width
+    div.appendChild(iframe)
+
+    return div
   }
 
   static generateFormInputs() {
