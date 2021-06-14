@@ -184,7 +184,7 @@ class Element {
 
 
   static get types() {
-    return ["FancyLink"]
+    return ["FancyLink", "FancyIframe"]
   }
 
 }
