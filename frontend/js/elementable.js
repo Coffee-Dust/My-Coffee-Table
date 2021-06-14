@@ -22,3 +22,11 @@ class FancyLink {
     `
   }
 }
+
+class FancyIframe {
+
+  constructor(element) {
+
+  }
+
+}
