@@ -2,3 +2,8 @@
   border: none;
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
 }
+
+.fancy_iframe h4 {
+  margin-top: none;
+  color: antiquewhite;
+}
