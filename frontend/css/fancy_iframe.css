@@ -9,3 +9,11 @@
   margin: 0px;
   font-size: 1.3em;
 }
+
+.fancy_iframe > p {
+  display: block;
+  padding-bottom: none;
+  color: antiquewhite;
+  margin: 0px;
+  text-align: right;
+}
