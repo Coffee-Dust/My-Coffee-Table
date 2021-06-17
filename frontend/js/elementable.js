@@ -10,6 +10,7 @@ class FancyLink {
     const a = document.createElement("a")
     a.href = this.data.url
     a.textContent = this.data.textContent
+    a.target = "_blank"
 
     return a
   }
