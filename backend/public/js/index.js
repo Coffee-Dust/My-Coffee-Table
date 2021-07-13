@@ -1,4 +1,4 @@
-self.baseURL = "http://localhost:3000"
+self.baseURL = ""
 
 User.addListeners()
 CoffeeTableViewController.fixTableSize()
